@@ -1,12 +1,12 @@
 import java.net.*;
+import java.io.*;
+import java.net.*;
 import java.nio.file.*;
 
 import miniProject.DataInputStream;
 import miniProject.DataOutputStream;
 import miniProject.IOException;
 import miniProject.Socket;
-
-import java.io.*;
 
 public class Client {
 	
