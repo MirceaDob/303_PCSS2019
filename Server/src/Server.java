@@ -3,14 +3,20 @@ import java.net.*;
 
 public class Server {
 
+	private static ServerSocket ss;
+
+
+
+
 	public static void main(String[] args) throws IOException {
-		ServerSocket ss = new ServerSocket(25565);
+		ss = new ServerSocket(10002);
 		ss.setReuseAddress(true);
 		//Note: Important. Allows socket to be bound, even if other is in timeout state.
-		
-		
+		System.out.println("Waiting for connection...");
+		MysqlCon.printSQL();
 		while (true) {
 			Socket client = ss.accept();
+	
 			System.out.println("Success");
 			//Accept incoming connections
 			
