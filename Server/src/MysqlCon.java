@@ -4,10 +4,12 @@ import java.sql.*;
 
 public class MysqlCon {
 	public static void printSQL() {
+		
+		
 		try {
-			Class.forName("com.mysql.jdbc.Driver");
+			Class.forName("com.mysql.cj.jdbc.Driver");
 			//dedicated connection url, name and password
-			Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/questiondata", "root", "Matus_2208");
+			Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/questiondata?useTimezone=true&serverTimezone=UTC","Test","root");
 			//used to implement simple SQL elements with no parameters
 			Statement stmt = con.createStatement();
 			//this one asks for which columns in the table to print out
