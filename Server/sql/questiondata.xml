@@ -1,0 +1,144 @@
+<?xml version="1.0" standalone="yes"?>
+<RECORDS>
+	<RECORD>
+		<ID>0001</ID>
+		<Qst>What is Cristiano Ronaldo&apos;s main profession?</Qst>
+		<Opt1>A football player</Opt1>
+		<Opt2>An actor</Opt2>
+		<Opt3>A model</Opt3>
+	</RECORD>
+	<RECORD>
+		<ID>0002</ID>
+		<Qst>What is the capital city of Syria?</Qst>
+		<Opt1>Damascus</Opt1>
+		<Opt2>Cairo</Opt2>
+		<Opt3>Baghdad</Opt3>
+	</RECORD>
+	<RECORD>
+		<ID>0003</ID>
+		<Qst>Which automobile brand has four circles in their logo?</Qst>
+		<Opt1>Audi</Opt1>
+		<Opt2>BMW</Opt2>
+		<Opt3>Mercedes-Benz</Opt3>
+	</RECORD>
+	<RECORD>
+		<ID>0004</ID>
+		<Qst>Who is Michael Jordan?</Qst>
+		<Opt1>A basketball player</Opt1>
+		<Opt2>A president</Opt2>
+		<Opt3>An E-Sport player</Opt3>
+	</RECORD>
+	<RECORD>
+		<ID>0005</ID>
+		<Qst>What is the population of China?</Qst>
+		<Opt1>Around 1,38 billion</Opt1>
+		<Opt2>Around 1,62 billion</Opt2>
+		<Opt3>Around 0,98 billion</Opt3>
+	</RECORD>
+	<RECORD>
+		<ID>0006</ID>
+		<Qst>Who was the first human in outer space?</Qst>
+		<Opt1>Yuri Gagarin</Opt1>
+		<Opt2>Neil Armstrong</Opt2>
+		<Opt3>Niels Amsterdam</Opt3>
+	</RECORD>
+	<RECORD>
+		<ID>0007</ID>
+		<Qst>Which meal is the most caloric? (100g serving)</Qst>
+		<Opt1>Macadamia Nuts</Opt1>
+		<Opt2>Salmon</Opt2>
+		<Opt3>Avocado</Opt3>
+	</RECORD>
+	<RECORD>
+		<ID>0008</ID>
+		<Qst>Which country is the biggest in the world?</Qst>
+		<Opt1>Russia</Opt1>
+		<Opt2>China</Opt2>
+		<Opt3>USA</Opt3>
+	</RECORD>
+	<RECORD>
+		<ID>0009</ID>
+		<Qst>What is Russian Standard?</Qst>
+		<Opt1>Vodka</Opt1>
+		<Opt2>Special tea made out of potatoes</Opt2>
+		<Opt3>Beer brand</Opt3>
+	</RECORD>
+	<RECORD>
+		<ID>0010</ID>
+		<Qst>What is the capital city of Australia?</Qst>
+		<Opt1>Canberra</Opt1>
+		<Opt2>Sydney</Opt2>
+		<Opt3>Perth</Opt3>
+	</RECORD>
+	<RECORD>
+		<ID>0011</ID>
+		<Qst>What was the most known Russian tank during the WW2?</Qst>
+		<Opt1>T-34</Opt1>
+		<Opt2>Tiger I</Opt2>
+		<Opt3>M4 Sherman</Opt3>
+	</RECORD>
+	<RECORD>
+		<ID>0012</ID>
+		<Qst>Where did the brand by the name of Ford originate?</Qst>
+		<Opt1>USA</Opt1>
+		<Opt2>Poland</Opt2>
+		<Opt3>Italy</Opt3>
+	</RECORD>
+	<RECORD>
+		<ID>0013</ID>
+		<Qst>Where was Keanu Reeves born?</Qst>
+		<Opt1>Lebanon</Opt1>
+		<Opt2>Canada</Opt2>
+		<Opt3>Brazil</Opt3>
+	</RECORD>
+	<RECORD>
+		<ID>0014</ID>
+		<Qst>Which character did Andy Serkis portray in The Lord of the Rings?</Qst>
+		<Opt1>Gollum</Opt1>
+		<Opt2>Faramir</Opt2>
+		<Opt3>Sauron</Opt3>
+	</RECORD>
+	<RECORD>
+		<ID>0015</ID>
+		<Qst>Who played Arthur in the 2019 Joker movie?</Qst>
+		<Opt1>Joaquin Phoenix</Opt1>
+		<Opt2>Martin Lawrence</Opt2>
+		<Opt3>Daniel Craig</Opt3>
+	</RECORD>
+	<RECORD>
+		<ID>0016</ID>
+		<Qst>Which horror movie did Bill Skarsgård play in?</Qst>
+		<Opt1>IT</Opt1>
+		<Opt2>The Orphanage</Opt2>
+		<Opt3>A Nightmare on Elm Street</Opt3>
+	</RECORD>
+	<RECORD>
+		<ID>0017</ID>
+		<Qst>Which time of the year does the famous Oktoberfest take place?</Qst>
+		<Opt1>September</Opt1>
+		<Opt2>October</Opt2>
+		<Opt3>November</Opt3>
+	</RECORD>
+	<RECORD>
+		<ID>0018</ID>
+		<Qst>When did Michael Jackson die?</Qst>
+		<Opt1>2009</Opt1>
+		<Opt2>2011</Opt2>
+		<Opt3>2007</Opt3>
+	</RECORD>
+	<RECORD>
+		<ID>0019</ID>
+		<Qst>Who is the founder of Apple company?</Qst>
+		<Opt1>Steve Jobs</Opt1>
+		<Opt2>Bill Gates</Opt2>
+		<Opt3>Elon Musk</Opt3>
+	</RECORD>
+	<RECORD>
+		<ID>0020</ID>
+		<Qst>What is Nokia 3310 most famous for?</Qst>
+		<Opt1>Its indestructibleness</Opt1>
+		<Opt2>Its 24-karat gold decoration</Opt2>
+		<Opt3>Not using Android OS</Opt3>
+	</RECORD>
+</RECORDS>
+
