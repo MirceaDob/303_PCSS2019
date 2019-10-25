@@ -9,7 +9,7 @@ public class Server {
 
 
 	public static void main(String[] args) throws IOException {
-		ss = new ServerSocket(10002);
+		ss = new ServerSocket(10007);
 		ss.setReuseAddress(true);
 		//Note: Important. Allows socket to be bound, even if other is in timeout state.
 		System.out.println("Waiting for connection...");
