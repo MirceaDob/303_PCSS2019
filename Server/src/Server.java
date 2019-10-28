@@ -50,22 +50,28 @@ public class Server {
 			DataOutputStream output = null;
 			//Initialise, needed later on
 			
+			
 			try {
 				input = new DataInputStream(new BufferedInputStream(userSocket.getInputStream()));
 				//BufferedReader bfr = new BufferedReader(new InputStreamReader(input));
 				output = new DataOutputStream(userSocket.getOutputStream());
+				//ObjectOutputStream outputStream = new ObjectOutputStream(userSocket.getOutputStream());
 
 				//String received = bfr.readLine();
 				//System.out.println(received);
 				//Test to print input from client
 				
 				String line = ""; 
-				String received = "";
+				//String received = "";
+				//String[] questions = new String[1]; //Empty at the moment
+				//String questions[];
+				//questions = new String[] {"Question1", "Question2", "Question3"}; 
 				
 				while (!line.equals("Over")) { //Unless client types "Over" input will be printed
 					line = input.readUTF();
 					System.out.println(line); //Printing input from client
 					output.writeUTF("cool");
+					//outputStream.writeObject(questions);
 					//System.out.println("received");
 					
 				
