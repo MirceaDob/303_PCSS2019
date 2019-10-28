@@ -35,15 +35,15 @@ QuestionWindow(){
 	next.setBounds(700,75,150,40);
 	qw.add(next);
 		
-	JButton a1=new JButton(qstlist.get(1));
+	JButton a1=new JButton(qstlist.get(0));
 	a1.setBounds(50,500,900,40);
 	qw.add(a1);
 	
-	JButton a2=new JButton(qstlist.get(2));
+	JButton a2=new JButton(qstlist.get(1));
 	a2.setBounds(50,550,900,40);
 	qw.add(a2);
 	
-	JButton a3=new JButton(qstlist.get(3));
+	JButton a3=new JButton(qstlist.get(2));
 	a3.setBounds(50,600,900,40);
 	qw.add(a3);
 	
