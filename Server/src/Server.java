@@ -30,8 +30,7 @@ public class Server {
 		
 	}
 	
-	
-	
+		
 	
 	private static class User implements Runnable {
 		private Socket userSocket;
@@ -63,15 +62,19 @@ public class Server {
 				
 				String line = ""; 
 				//String received = "";
-				//String[] questions = new String[1]; //Empty at the moment
+				//String [] questions = new String[3]; //Empty at the moment
+				//questions[0] = "question1";
+				//questions[1] = "question2";
+				//questions[2] = "question3";
 				//String questions[];
-				//questions = new String[] {"Question1", "Question2", "Question3"}; 
+				//questions = new String[] {"Question1", "Question2", "Question3"}; //examples
 				
 				while (!line.equals("Over")) { //Unless client types "Over" input will be printed
 					line = input.readUTF();
 					System.out.println(line); //Printing input from client
 					output.writeUTF("cool");
-					//outputStream.writeObject(questions);
+				//	outputStream.writeObject(questions);
+				//	System.out.println(questions[1]);
 					//System.out.println("received");
 					
 				

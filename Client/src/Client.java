@@ -3,11 +3,11 @@ import java.io.*;
 import java.net.*;
 import java.nio.file.*;
 
-import miniProject.DataInputStream;
+/*import miniProject.DataInputStream;
 import miniProject.DataOutputStream;
 import miniProject.IOException;
 import miniProject.Socket;
-
+*/
 public class Client {
 	
 	private Socket socket;
@@ -17,18 +17,19 @@ public class Client {
     private String input;
 	
 	public static void main(String[] args) throws Exception {
+        QuestionWindow MyWindow = new QuestionWindow();
 		String ip = "198.0.0.1";				
 		//Make the user input IP here, somewhere. Probably through GUI, eventually.
 		//s = new Socket(ip, 25565);
 		//Connects to IP, Port
 		
-		try {
+		/*try {
 			this.socket = new Socket(ip, port);
             this.iStream = new DataInputStream(socket.getInputStream());
             this.oStream = new DataOutputStream(socket.getOutputStream());
         }catch (Exception e) {
             e.printStackTrace();
-        }
+        }*/
 		
 		
 	}
