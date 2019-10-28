@@ -15,7 +15,7 @@ public class Server {
 		System.out.println("Waiting for connection...");
 		//MysqlCon.printSQL();
 		while (true) {
-			Socket client = ss.accept();
+			Socket client = ss.accept();//accepting client
 	
 			System.out.println("Success");
 			//Accept incoming connections
@@ -52,29 +52,33 @@ public class Server {
 			
 			try {
 				input = new DataInputStream(new BufferedInputStream(userSocket.getInputStream()));
-				//BufferedReader bfr = new BufferedReader(input);
+				//BufferedReader bfr = new BufferedReader(new InputStreamReader(input));
 				output = new DataOutputStream(userSocket.getOutputStream());
 
 				//String received = bfr.readLine();
 				//System.out.println(received);
 				//Test to print input from client
 				
-				String line = "";
+				String line = ""; 
+				String received = "";
 				
-				while (!line.equals("Over")) {
+				while (!line.equals("Over")) { //Unless client types "Over" input will be printed
 					line = input.readUTF();
-					System.out.println(line);
+					System.out.println(line); //Printing input from client
+					output.writeUTF("cool");
+					//System.out.println("received");
+					
+				
 				}
 				
 			} catch (IOException e) {
 				// TODO Auto-generated catch block
+				//System.out.println("Unable to start server.");
 				e.printStackTrace();
 			}
 			
-			finally {
-				
-				//Close socket
-				
+			finally {				
+				//Close socket				
                 try {
                     if (output != null) {
                         output.close();
@@ -82,7 +86,7 @@ public class Server {
                     if (input != null)
                         input.close();
                     userSocket.close();
-                } catch (IOException e) {
+                } catch (IOException e) { 
                     e.printStackTrace();
                 }
 		}
