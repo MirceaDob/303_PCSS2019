@@ -9,11 +9,11 @@ public class Server {
 
 
 	public static void main(String[] args) throws IOException {
-		ss = new ServerSocket(10002);
+		ss = new ServerSocket(10008);
 		ss.setReuseAddress(true);
 		//Note: Important. Allows socket to be bound, even if other is in timeout state.
 		System.out.println("Waiting for connection...");
-		MysqlCon.printSQL();
+		//MysqlCon.printSQL();
 		while (true) {
 			Socket client = ss.accept();
 	
@@ -44,23 +44,26 @@ public class Server {
 		
 		@Override
 		public void run() {
-			InputStreamReader input = null;
-			PrintWriter output = null;
-			//Instantiate, needed later on
+			// input = null;
+			
+			DataInputStream input = null;
+			DataOutputStream output = null;
+			//Initialise, needed later on
 			
 			try {
-				input = new InputStreamReader(userSocket.getInputStream());
-				BufferedReader bfr = new BufferedReader(input);
-				output = new PrintWriter(userSocket.getOutputStream(), true);
+				input = new DataInputStream(new BufferedInputStream(userSocket.getInputStream()));
+				//BufferedReader bfr = new BufferedReader(input);
+				output = new DataOutputStream(userSocket.getOutputStream());
 
-				String inpstr = bfr.readLine();
-				System.out.println(inpstr);
+				//String received = bfr.readLine();
+				//System.out.println(received);
 				//Test to print input from client
 				
-				String received;
+				String line = "";
 				
-				while ((received = bfr.readLine()) != null) {
-					System.out.println(received);
+				while (!line.equals("Over")) {
+					line = input.readUTF();
+					System.out.println(line);
 				}
 				
 			} catch (IOException e) {

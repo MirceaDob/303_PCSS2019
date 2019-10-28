@@ -1,22 +1,32 @@
+import java.io.OutputStream;
+import java.io.IOException;
+
 import javax.swing.*;
 
 public class QuestionWindow {
 JFrame qw;
 int scor;
+String temp = "Test";
 
 QuestionWindow(){
 	qw=new JFrame();
+	
+	int f= Questions.question;
 	
 	JTextArea score=new JTextArea("Score:", scor, scor);
 	score.setBounds(400,50,200,100);
 	score.setEditable(false);
 	qw.add(score);
 	
-	JTextArea question=new JTextArea("Question");
-	question.setBounds(100,250,800,200);
-	question.setEditable(false);
-	qw.add(question);
+	JTextArea questionArea=new JTextArea();
 	
+	questionArea.append(String.valueOf((String)temp));
+	
+	questionArea.update(questionArea.getGraphics());
+	questionArea.setBounds(100,250,800,200);
+	questionArea.setEditable(false);
+	qw.add(questionArea);
+		
 	JButton next=new JButton("Next Question");
 	next.setBounds(700,75,150,40);
 	qw.add(next);

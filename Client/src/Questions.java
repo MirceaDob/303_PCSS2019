@@ -2,8 +2,8 @@ import java.util.Random;
 
 public class Questions
 {
-    Random rn = new Random();
-    int question = rn.nextInt(15 - 1 + 1) + 1;
+    static Random rn = new Random();
+    static int question = 5; /*rn.nextInt(15 - 1 + 1) + 1;*/
     int answer = rn.nextInt(3 - 1 + 1) + 1;
     void questions()
     {
