@@ -4,20 +4,22 @@ import java.util.Collections;
 import java.util.Scanner;
 
 public class MysqlCon {
-	public static void printSQL() {
+	
+	
+	public static void printSQL(int genID) {
 		try {
-			Class.forName("com.mysql.jdbc.Driver");
-			Scanner scan = new Scanner(System.in);
+			Class.forName("com.mysql.cj.jdbc.Driver");
 			// dedicated connection url, name and password
-			Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/questiondata", "root",
-					"Matus_2208");
+			Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/questiondata?useTimezone=true&serverTimezone=UTC", "Test", "root");
+			// remember to include the timezone edit
 			// used to implement simple SQL elements with no parameters
 			Statement stmt = con.createStatement();
 			// this one asks for which columns in the table to print out
 
-			String find = scan.next();
-			String query = "SELECT * FROM questiondata WHERE ID ='" + find + "'";
+			int find = genID;
+			String query = "SELECT * FROM questiondata WHERE ID = '" + find + "'";
 			ResultSet rs = stmt.executeQuery(query);
+
 
 			while (rs.next()) {
 				String ID = rs.getString("ID");
