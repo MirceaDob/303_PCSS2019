@@ -5,7 +5,8 @@ import java.util.*;
 import javax.swing.*;
 
 public class QuestionWindow {
-    List<String> qstlist = (List<String>) AnswerRandomizer.shuffler();
+    List<String> qstlist = (List<String>) AnswerRandomizer.shuffler(Client.options);
+    String qst = Client.options[0];
     JFrame qw;
 int scor;
 String temp = "Test";
@@ -13,10 +14,8 @@ String temp = "Test";
 QuestionWindow(){
 	qw=new JFrame();
 
-
-	
 	int f= Questions.question;
-	
+
 	JTextArea score=new JTextArea("Score:", scor, scor);
 	score.setBounds(400,50,200,100);
 	score.setEditable(false);
@@ -24,7 +23,7 @@ QuestionWindow(){
 	
 	JTextArea questionArea=new JTextArea();
 	
-	questionArea.append(String.valueOf((String)temp));
+	questionArea.append(qst);
 	
 	questionArea.update(questionArea.getGraphics());
 	questionArea.setBounds(100,250,800,200);
@@ -50,24 +49,5 @@ QuestionWindow(){
 	qw.setSize(1000,700);
 	qw.setLayout(null);  
 	qw.setVisible(true);  
-}
-
-    /*public static void main (String[] args)
-    {
-        try
-        {
-            QuestionWindow obj = new QuestionWindow();
-            obj.run (args);
-        }
-        catch (Exception e)
-        {
-            e.printStackTrace ();
-        }
     }
-
-
-    public void run (String[] args) throws Exception
-    {
-    }*/
-
 }

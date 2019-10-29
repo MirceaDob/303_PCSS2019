@@ -1,6 +1,5 @@
 public class Result {
-    int rights = 0;
-    int wrongs = 0;
+    int points = 0;
 
 
     Outcomes UserChoice (Answers answers)
@@ -20,10 +19,10 @@ public class Result {
     void registerOutcome(Outcomes outcome) {
         switch (outcome) {
             case RIGHT:
-                rights += 1;
+                points += 1;
                 break;
             case WRONG:
-                wrongs += 0;
+                points +=0;
                 break;
         }
 

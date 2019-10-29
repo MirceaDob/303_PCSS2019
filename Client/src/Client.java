@@ -15,8 +15,11 @@ public class Client {
 	private DataInputStream iStream;
     private DataOutputStream oStream;
     private String input;
-	
-	public static void main(String[] args) throws Exception {
+    public static String[] options;
+
+
+    public static void main(String[] args) throws Exception {
+        options = new String[]{"Question","Right answer","Wrong answer 1","Wrong answer 2"};
         QuestionWindow MyWindow = new QuestionWindow();
 		String ip = "198.0.0.1";				
 		//Make the user input IP here, somewhere. Probably through GUI, eventually.
