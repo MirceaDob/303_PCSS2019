@@ -3,9 +3,10 @@ import java.net.*;
 
 public class Server {
 
-	private static ServerSocket ss;
+	 //private ObjectInputStream inputFromClient;
+	 //private ObjectOutputStream outputToClient;
 
-
+		private static ServerSocket ss;
 
 
 	public static void main(String[] args) throws IOException {
@@ -13,11 +14,12 @@ public class Server {
 		ss.setReuseAddress(true);
 		//Note: Important. Allows socket to be bound, even if other is in timeout state.
 		System.out.println("Waiting for connection...");
-		//MysqlCon.printSQL();
+		//MysqlCon.printSQL();		
 		while (true) {
-			Socket client = ss.accept();//accepting client
-	
-			System.out.println("Success");
+			Socket client = ss.accept();// Connect to a client
+			System.out.println("Connection accepted."); 
+			
+			
 			//Accept incoming connections
 			
 			User userhandler = new User(client);
@@ -33,10 +35,10 @@ public class Server {
 		
 	
 	private static class User implements Runnable {
-		private Socket userSocket;
+		private Socket userSocket; // a connected socket
 		
 		public User(Socket socket) {
-			//CONSTRUCTOR
+			//Constructor 
 			this.userSocket = socket;
 		}
 		
@@ -49,8 +51,8 @@ public class Server {
 			DataOutputStream output = null;
 			//Initialise, needed later on
 			
-			
-			try {
+			// create data input and output streams
+			try { 
 				input = new DataInputStream(new BufferedInputStream(userSocket.getInputStream()));
 				//BufferedReader bfr = new BufferedReader(new InputStreamReader(input));
 				output = new DataOutputStream(userSocket.getOutputStream());
@@ -60,8 +62,22 @@ public class Server {
 				//System.out.println(received);
 				//Test to print input from client
 				
+				/*
+				outputToClient = new ObjectOutputStream(ss.getOutputStream());
+				 //Create an input stream from socket
+				inputFromClient = new ObjectInputStream(ss.getInputStream());
+				
+				// read from input
+				 Object object = inputFromClient.readObject();
+				
+				
+				// Write to Server
+				// outputToFile.writeObject(object);
+				// System.out.println("");
+				*/
+				
 				String line = ""; 
-				//String received = "";
+				String received = "cool";
 				//String [] questions = new String[3]; //Empty at the moment
 				//questions[0] = "question1";
 				//questions[1] = "question2";
@@ -69,13 +85,23 @@ public class Server {
 				//String questions[];
 				//questions = new String[] {"Question1", "Question2", "Question3"}; //examples
 				
+				
 				while (!line.equals("Over")) { //Unless client types "Over" input will be printed
-					line = input.readUTF();
-					System.out.println(line); //Printing input from client
-					output.writeUTF("cool");
-				//	outputStream.writeObject(questions);
-				//	System.out.println(questions[1]);
+					line = input.readUTF(); //receives/reads input from client
+					//String command = inputFromClient.readUTF();
 					//System.out.println("received");
+					
+					System.out.println(line); //Printing input from client
+					
+					//initialise the output (q and a) to client  
+					
+					output.writeUTF(received); //prints string to client 
+				
+					//	outputStream.writeObject(questions);
+				
+					//	System.out.println(questions[1]);
+					
+					//	System.out.println("received");
 					
 				
 				}
