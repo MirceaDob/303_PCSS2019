@@ -14,13 +14,20 @@ public class Server {
 		ss.setReuseAddress(true);
 		//Note: Important. Allows socket to be bound, even if other is in timeout state.
 		System.out.println("Waiting for connection...");
+//		<<<<<<< HEAD
 		//MysqlCon.printSQL();		
+//=======
+//		int genID = ShuffleRand.shuffleID();
+//		MysqlCon.printSQL(genID);
+//		System.exit(0);
+//>>>>>>> 2b335e78900cf259a6bb0c8964707bb5863f961d
+	//	
 		while (true) {
-			Socket client = ss.accept();// Connect to a client
-			System.out.println("Connection accepted."); 
+			Socket client = ss.accept(); //Connect to a client
+			System.out.println("Connection accepted"); 
 			
 			
-			//Accept incoming connections
+//			//Accept incoming connections
 			
 			User userhandler = new User(client);
 			//New class object
