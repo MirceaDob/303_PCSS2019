@@ -1,3 +1,4 @@
+import javax.swing.*;
 import java.net.*;
 import java.io.*;
 import java.net.*;
@@ -15,17 +16,28 @@ public class Client {
 	private DataInputStream iStream;
     private DataOutputStream oStream;
     private String input;
-    public static String[] options;
+
+    private MainWindow window;
+    
+    public Client()
+    {
+        Answer correct = new Answer("Right Answer", true);
+        Answer wrong1 = new Answer("Wrong Answer 1", false);
+        Answer wrong2 = new Answer("Wrong Answer 2", false);
+        Question question = new Question("Question", correct, wrong1, wrong2);
+
+        window = new MainWindow();
+
+        window.setToQuestionPanel(question);
+
+        //String ip = "198.0.0.1";
 
 
-    public static void main(String[] args) throws Exception {
-        options = new String[]{"Question","Right answer","Wrong answer 1","Wrong answer 2"};
-        QuestionWindow MyWindow = new QuestionWindow();
-		String ip = "198.0.0.1";				
-		//Make the user input IP here, somewhere. Probably through GUI, eventually.
-		//s = new Socket(ip, 25565);
-		//Connects to IP, Port
-		
+
+        //Make the user input IP here, somewhere. Probably through GUI, eventually.
+        //s = new Socket(ip, 25565);
+        //Connects to IP, Port
+
 		/*try {
 			this.socket = new Socket(ip, port);
             this.iStream = new DataInputStream(socket.getInputStream());
@@ -33,8 +45,13 @@ public class Client {
         }catch (Exception e) {
             e.printStackTrace();
         }*/
-		
-		
+
+
+
+    }
+
+    public static void main(String[] args) throws Exception {
+        new Client();
 	}
 	
 	protected void send (String message) {

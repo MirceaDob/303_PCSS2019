@@ -14,7 +14,6 @@ public class MysqlCon {
 			// used to implement simple SQL elements with no parameters
 			Statement stmt = con.createStatement();
 			// this one asks for which columns in the table to print out
-
 			String find = scan.next();
 			String query = "SELECT * FROM questiondata WHERE ID ='" + find + "'";
 			ResultSet rs = stmt.executeQuery(query);
