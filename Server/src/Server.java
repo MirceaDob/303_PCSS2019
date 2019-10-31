@@ -7,13 +7,14 @@ import java.util.Random;
 public class Server {
 
 	private static ServerSocket ss;
-
-
+	static int genID = ShuffleRand.shuffleID();
+	public static String[] questions;
 
 
 	public static void main(String[] args) throws IOException {
 		ss = new ServerSocket(10008);
 		ss.setReuseAddress(true);
+		
 		//Note: Important. Allows socket to be bound, even if other is in timeout state.
 		System.out.println("Waiting for connection...");
 		//ArrayList<String> q = new ArrayList<String>();
@@ -22,7 +23,7 @@ public class Server {
 		//q.add("question");
 		
 		
-		//MysqlCon.printSQL();
+		//
 		while (true) {
 			Socket client = ss.accept();//accepting client
 	
@@ -43,7 +44,6 @@ public class Server {
 	
 	private static class User implements Runnable {
 		private Socket userSocket;
-		
 		public User(Socket socket) {
 			//CONSTRUCTOR
 			this.userSocket = socket;
@@ -57,6 +57,7 @@ public class Server {
 			DataInputStream input = null;
 			DataOutputStream output = null;
 			//Initialise, needed later on
+			MysqlCon.printSQL(genID);
 			
 			
 			try {
@@ -77,13 +78,16 @@ public class Server {
 				//questions[2] = "question3";
 				//String questions[];
 				//questions = new String[] {"Question1", "Question2", "Question3"}; //examples
-				String [] questions = {"hello", "no thanks", "whatever"};
+				
 				while (!line.equals("Over")) { //Unless client types "Over" input will be printed
+					
 					line = input.readUTF();
+					
 					// --> ? sendQuestion = getRandomQuestion(listWithQuestions);
 					System.out.println(line); //Printing input from client
+					
 					//output.writeUTF("cool");
-					objectOutput.writeObject(MysqlCon.);
+					objectOutput.writeObject(questions);
 					//outputStream.writeObject(questions);
 					//System.out.println(questions[1]);
 					//System.out.println("received");

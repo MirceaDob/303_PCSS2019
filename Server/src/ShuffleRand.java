@@ -2,21 +2,25 @@ import java.util.*;
 
 public class ShuffleRand
 {
+
+	static int[] IDrand = new int[20];
 	
-	public static void main(String[] args)
+	public static int shuffleID()
 	{
-	    Integer[] arr = new Integer[20];
+		
+		for(int i = 1; i < IDrand.length; i++) {
+			IDrand[i] = i;
+		}
+		
+		MysqlCon rand = new MysqlCon();
+	    //Integer[] arr = new Integer[20];
+		
+		int genID = IDrand[(int)(Math.random() * 20 + 1)];
+		
+	    System.out.println(genID);
+		return genID;
 	    
-	    for (int i = 0; i < arr.length; i++)
-	    {
-	        arr[i] = i + 1;	        
-	    }	    
-	    
-	    Collections.shuffle(Arrays.asList(arr));
-	    
-	    for (int k=1; k<=5; k++)
-	    {
-	        System.out.println(arr[k]);
-	    }	    
+	    //Collections.shuffle(Arrays.asList(IDrand));
+	       
 	}
 }
