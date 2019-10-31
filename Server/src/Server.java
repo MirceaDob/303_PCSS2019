@@ -1,5 +1,8 @@
 import java.io.*;
 import java.net.*;
+import java.util.ArrayList;
+import java.util.Random;
+
 
 public class Server {
 
@@ -13,6 +16,12 @@ public class Server {
 		ss.setReuseAddress(true);
 		//Note: Important. Allows socket to be bound, even if other is in timeout state.
 		System.out.println("Waiting for connection...");
+		ArrayList<String> q = new ArrayList<String>();
+		q.add("question1");
+		q.add("question2");
+		q.add("question");
+		
+		
 		//MysqlCon.printSQL();
 		while (true) {
 			Socket client = ss.accept();//accepting client
@@ -44,7 +53,7 @@ public class Server {
 		@Override
 		public void run() {
 			// input = null;
-			
+			ObjectOutputStream objectOutput = null;
 			DataInputStream input = null;
 			DataOutputStream output = null;
 			//Initialise, needed later on
@@ -54,7 +63,7 @@ public class Server {
 				input = new DataInputStream(new BufferedInputStream(userSocket.getInputStream()));
 				//BufferedReader bfr = new BufferedReader(new InputStreamReader(input));
 				output = new DataOutputStream(userSocket.getOutputStream());
-				//ObjectOutputStream outputStream = new ObjectOutputStream(userSocket.getOutputStream());
+				objectOutput = new ObjectOutputStream(userSocket.getOutputStream());
 
 				//String received = bfr.readLine();
 				//System.out.println(received);
@@ -68,13 +77,15 @@ public class Server {
 				//questions[2] = "question3";
 				//String questions[];
 				//questions = new String[] {"Question1", "Question2", "Question3"}; //examples
-				
+				String [] questions = {"hello", "no thanks", "whatever"};
 				while (!line.equals("Over")) { //Unless client types "Over" input will be printed
 					line = input.readUTF();
+					// --> ? sendQuestion = getRandomQuestion(listWithQuestions);
 					System.out.println(line); //Printing input from client
 					output.writeUTF("cool");
-				//	outputStream.writeObject(questions);
-				//	System.out.println(questions[1]);
+					objectOutput.writeObject(questions);
+					//outputStream.writeObject(questions);
+					//System.out.println(questions[1]);
 					//System.out.println("received");
 					
 				
