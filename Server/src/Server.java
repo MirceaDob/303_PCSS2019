@@ -16,10 +16,10 @@ public class Server {
 		ss.setReuseAddress(true);
 		//Note: Important. Allows socket to be bound, even if other is in timeout state.
 		System.out.println("Waiting for connection...");
-		ArrayList<String> q = new ArrayList<String>();
-		q.add("question1");
-		q.add("question2");
-		q.add("question");
+		//ArrayList<String> q = new ArrayList<String>();
+		//q.add("question1");
+		//q.add("question2");
+		//q.add("question");
 		
 		
 		//MysqlCon.printSQL();
@@ -82,8 +82,8 @@ public class Server {
 					line = input.readUTF();
 					// --> ? sendQuestion = getRandomQuestion(listWithQuestions);
 					System.out.println(line); //Printing input from client
-					output.writeUTF("cool");
-					objectOutput.writeObject(questions);
+					//output.writeUTF("cool");
+					objectOutput.writeObject(MysqlCon.);
 					//outputStream.writeObject(questions);
 					//System.out.println(questions[1]);
 					//System.out.println("received");
