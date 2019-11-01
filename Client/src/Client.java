@@ -18,17 +18,22 @@ public class Client {
     private String input;
 
     private MainWindow window;
-    
-    public Client()
+
+
+    public Client() throws UnknownHostException, IOException, ClassNotFoundException
     {
-        Answer correct = new Answer("Right Answer", true);
-        Answer wrong1 = new Answer("Wrong Answer 1", false);
-        Answer wrong2 = new Answer("Wrong Answer 2", false);
-        Question question = new Question("Question", correct, wrong1, wrong2);
+        System.out.println("Connect next.");
+        ConnectionTest.connection();
+        System.out.println("Connection passed.");
+        Answer correct = new Answer(ConnectionTest.received[1], true);
+        Answer wrong1 = new Answer(ConnectionTest.received[2], false);
+        Answer wrong2 = new Answer(ConnectionTest.received[3], false);
+        Question question = new Question(ConnectionTest.received[0], correct, wrong1, wrong2);
 
         window = new MainWindow();
 
         window.setToQuestionPanel(question);
+
 
         //String ip = "198.0.0.1";
 
@@ -52,6 +57,7 @@ public class Client {
 
     public static void main(String[] args) throws Exception {
         new Client();
+
 	}
 	
 	protected void send (String message) {
