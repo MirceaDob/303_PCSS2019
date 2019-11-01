@@ -3,6 +3,8 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.OutputStream;
 import java.io.IOException;
+import java.net.Socket;
+import java.net.UnknownHostException;
 import java.util.*;
 import java.util.List;
 
@@ -65,32 +67,45 @@ public class QuestionPanel extends JPanel implements ActionListener {
         a3.setText(answers.get(2).text);
     }
 
-    @Override
+    //@Override
     public void actionPerformed(ActionEvent e) {
         String action = e.getActionCommand();
-        if (action.equals("Button1")) {
-            if (answers.get(0).isRightAnswer) {
-                System.out.println("Right!");
-                // We pressed the right answer!
-            } else {
-                System.out.println("wrong");
+
+        try {
+            if (action.equals("Button1")) {
+                if (answers.get(0).isRightAnswer) {
+                    System.out.println("Right!");
+                    ConnectionTest.response("Right");
+                    // We pressed the right answer!
+                } else {
+                    System.out.println("wrong");
+                    ConnectionTest.response("Wrong");
+                }
             }
-        }
-        if (action.equals("Button2")) {
-            if (answers.get(1).isRightAnswer) {
-                System.out.println("Right!");
-                // We pressed the right answer!
-            } else {
-                System.out.println("wrong");
+            if (action.equals("Button2")) {
+                if (answers.get(1).isRightAnswer) {
+                    System.out.println("Right!");
+                    ConnectionTest.response("Right");
+                    // We pressed the right answer!
+                } else {
+                    System.out.println("wrong");
+                    ConnectionTest.response("Wrong");
+                }
             }
-        }
-        if (action.equals("Button3")) {
-            if (answers.get(2).isRightAnswer) {
-                System.out.println("Right!");
-                // We pressed the right answer!
-            } else {
-                System.out.println("wrong");
+            if (action.equals("Button3")) {
+                if (answers.get(2).isRightAnswer) {
+                    System.out.println("Right!");
+                    ConnectionTest.response("Right");
+                    // We pressed the right answer!
+                } else {
+                    System.out.println("wrong");
+                    ConnectionTest.response("Wrong");
+                }
             }
-        }
+        } catch(IOException e1){
+            e1.printStackTrace();
+        } catch(ClassNotFoundException e1){
+            e1.printStackTrace();
+        } //Try
     }
 }
