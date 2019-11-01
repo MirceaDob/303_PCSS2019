@@ -33,8 +33,8 @@ public class MysqlCon {
 				String[] qna = {qst,ans1,ans2,ans3};
 				Server.questions = qna;
 				
-				System.out.println(qna[0]);
-				System.out.println(qna[1]+"  " + qna[2] + "   " +qna[3] + "   ");
+				//System.out.println(qna[0]);
+				//System.out.println(qna[1]+"  " + qna[2] + "   " +qna[3] + "   ");
 				
 			}
 		} catch (Exception e) {

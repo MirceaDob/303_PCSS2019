@@ -82,7 +82,7 @@ public class Server {
 				while (!line.equals("Over")) { //Unless client types "Over" input will be printed
 					
 					line = input.readUTF();
-					
+					genID = ShuffleRand.shuffleID();
 					// --> ? sendQuestion = getRandomQuestion(listWithQuestions);
 					System.out.println(line); //Printing input from client
 					
@@ -115,4 +115,4 @@ public class Server {
                 }
 		}
 		
-	}}}
+	}}} 

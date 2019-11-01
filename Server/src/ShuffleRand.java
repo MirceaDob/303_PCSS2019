@@ -17,7 +17,7 @@ public class ShuffleRand
 		
 		int genID = IDrand[(int)(Math.random() * 20 + 1)];
 		
-	    System.out.println(genID);
+	    //System.out.println(genID);
 		return genID;
 	    
 	    //Collections.shuffle(Arrays.asList(IDrand));
