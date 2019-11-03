@@ -1,6 +1,6 @@
 Instructions:
 
-CLient:
+Client:
 
 When running the client, the application will prompt you with an IP to connect to, requiring a valid IPv4 address currently hosting the server application.
 
