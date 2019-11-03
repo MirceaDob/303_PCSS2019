@@ -83,6 +83,7 @@ public class Server {
 					
 					line = input.readUTF();
 					genID = ShuffleRand.shuffleID();
+					MysqlCon.printSQL(genID);
 					// --> ? sendQuestion = getRandomQuestion(listWithQuestions);
 					System.out.println(line); //Printing input from client
 					

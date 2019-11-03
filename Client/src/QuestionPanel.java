@@ -19,10 +19,13 @@ public class QuestionPanel extends JPanel implements ActionListener {
     JButton a3;
 
     int scor;
+    int scoreRight;
+    int scoreTotal;
 
+    
     public QuestionPanel() {
 
-        JTextArea score = new JTextArea("Score:", scor, scor);
+        JTextArea score = new JTextArea("Score: " + scoreRight + "/" + scoreTotal, scor, scor);
         score.setBounds(400, 50, 200, 100);
         score.setEditable(false);
         add(score);
@@ -74,32 +77,27 @@ public class QuestionPanel extends JPanel implements ActionListener {
         try {
             if (action.equals("Button1")) {
                 if (answers.get(0).isRightAnswer) {
-                    System.out.println("Right!");
-                    ConnectionTest.response("Right");
+                    rightAnswer();
                     // We pressed the right answer!
+                    
                 } else {
-                    System.out.println("wrong");
-                    ConnectionTest.response("Wrong");
+                	wrongAnswer();
                 }
             }
             if (action.equals("Button2")) {
                 if (answers.get(1).isRightAnswer) {
-                    System.out.println("Right!");
-                    ConnectionTest.response("Right");
+                	rightAnswer();
                     // We pressed the right answer!
                 } else {
-                    System.out.println("wrong");
-                    ConnectionTest.response("Wrong");
+                	wrongAnswer();
                 }
             }
             if (action.equals("Button3")) {
                 if (answers.get(2).isRightAnswer) {
-                    System.out.println("Right!");
-                    ConnectionTest.response("Right");
+                	rightAnswer();
                     // We pressed the right answer!
                 } else {
-                    System.out.println("wrong");
-                    ConnectionTest.response("Wrong");
+                	wrongAnswer();
                 }
             }
         } catch(IOException e1){
@@ -108,4 +106,19 @@ public class QuestionPanel extends JPanel implements ActionListener {
             e1.printStackTrace();
         } //Try
     }
+    
+    private void rightAnswer() throws UnknownHostException, ClassNotFoundException, IOException {
+        System.out.println("Right!");
+        ConnectionTest.response("Right");
+        scoreRight++;
+        scoreTotal++;
+        
+    }
+    
+    private void wrongAnswer() throws UnknownHostException, ClassNotFoundException, IOException {
+    	System.out.println("Wrong!");
+        ConnectionTest.response("Wrong");
+        scoreTotal++;
+    }
+    
 }

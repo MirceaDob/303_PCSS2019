@@ -13,7 +13,7 @@ public class ConnectionTest {
 
 
 		System.out.println("Connecting...");
-		s = new Socket("192.168.43.252", 10008);
+		s = new Socket("localhost", 10008);
 		System.out.println("Connected.");
 		//Sets Socket
 		output = new DataOutputStream(s.getOutputStream());
