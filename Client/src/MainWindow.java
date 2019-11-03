@@ -1,28 +1,48 @@
 import javax.swing.*;
+
+import java.io.IOException;
+import java.net.UnknownHostException;
 import java.util.Random;
 
 public class MainWindow
 {
     private JFrame window;
-    private QuestionPanel questionPanel;
+    private static QuestionPanel questionPanel;
     private IPinput ipPanel;
+    static Question question;
 
-    public MainWindow()
+    public MainWindow() throws UnknownHostException, ClassNotFoundException, IOException
     {
+    	
         window = new JFrame();
         ipPanel = new IPinput();
-        questionPanel = new QuestionPanel();
         
         panelSet();
+        
         
         while(Client.ipConnect == null) {
-        	System.out.println("Awaiting User Input...");
+        	//System.out.println("While.");
         	
         }
+        
+        System.out.println("Connect next.");
+        ConnectionTest.connection();
+        System.out.println("Connection passed.");
+        //Client.setQuestion();
+        
         window.dispose();
         
-        panelSet();
+        Answer correct = new Answer(ConnectionTest.received[1], true);
+        Answer wrong1 = new Answer(ConnectionTest.received[2], false);
+        Answer wrong2 = new Answer(ConnectionTest.received[3], false);
+        Question question = new Question(ConnectionTest.received[0], correct, wrong1, wrong2);
         
+        
+        
+        questionPanel = new QuestionPanel();
+        questionPanel.showQuestion(question);
+        
+        panelSet();
         //setWindow(questionPanel, 1000, 700);
 
     }
@@ -50,6 +70,16 @@ public class MainWindow
     }
     
     
+
+    public static void setQuestion() {
+    	Answer correct = new Answer(ConnectionTest.received[1], true);
+        Answer wrong1 = new Answer(ConnectionTest.received[2], false);
+        Answer wrong2 = new Answer(ConnectionTest.received[3], false);
+        question = new Question(ConnectionTest.received[0], correct, wrong1, wrong2);
+        questionPanel.showQuestion(question);
+        System.out.println(question);
+        
+    }
     
 }
 

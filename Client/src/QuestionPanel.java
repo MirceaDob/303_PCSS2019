@@ -14,56 +14,25 @@ public class QuestionPanel extends JPanel implements ActionListener {
     List<Answer> answers;
 
     JTextArea questionArea;
+    JTextArea score;
     JButton a1;
     JButton a2;
     JButton a3;
 
-    int scor;
-    int scoreRight;
-    int scoreTotal;
+    int scoreRight = 0;
+    int scoreTotal = 0;
 
-    
     public QuestionPanel() {
 
-        JTextArea score = new JTextArea("Score: " + scoreRight + "/" + scoreTotal, scor, scor);
-        score.setBounds(400, 50, 200, 100);
-        score.setEditable(false);
-        add(score);
-
-        questionArea = new JTextArea();
-        //questionArea.update(questionArea.getGraphics());
-        questionArea.setBounds(100, 250, 800, 200);
-        questionArea.setEditable(false);
-        add(questionArea);
-
-        JButton next = new JButton();
-        next.setBounds(700, 75, 150, 40);
-        add(next);
-
-        a1 = new JButton();
-        a1.addActionListener(this);
-        a1.setActionCommand("Button1");
-        a1.setBounds(50, 500, 900, 40);
-        add(a1);
-
-        a2 = new JButton();
-        a2.setBounds(50, 550, 900, 40);
-        a2.addActionListener(this);
-        a2.setActionCommand("Button2");
-        add(a2);
-
-        a3 = new JButton();
-        a3.setBounds(50, 600, 900, 40);
-        a3.addActionListener(this);
-        a3.setActionCommand("Button3");
-        add(a3);
-
+    	updatePanel();
+        
     }
 
     void showQuestion(Question question)
     {
-        questionArea.setText(question.text);
+    	//score.setText("Score: " + Integer.toString(scoreRight) + "/" + Integer.toString(scoreTotal));
         List<Answer> answers = AnswerRandomizer.shuffler(question.answers);
+        questionArea.setText(question.text);
         this.answers = answers;
         a1.setText(answers.get(0).text);
         a2.setText(answers.get(1).text);
@@ -109,16 +78,63 @@ public class QuestionPanel extends JPanel implements ActionListener {
     
     private void rightAnswer() throws UnknownHostException, ClassNotFoundException, IOException {
         System.out.println("Right!");
-        ConnectionTest.response("Right");
-        scoreRight++;
-        scoreTotal++;
+        //ConnectionTest.response("Right");
+       // scoreRight++;
+        //scoreTotal++;
+        ConnectionTest.connection();
         
+        System.out.println("Done.");
+        
+        MainWindow.setQuestion();
     }
     
     private void wrongAnswer() throws UnknownHostException, ClassNotFoundException, IOException {
     	System.out.println("Wrong!");
-        ConnectionTest.response("Wrong");
-        scoreTotal++;
+        //ConnectionTest.response("Wrong");
+        //scoreTotal++;
+        ConnectionTest.connection();
+        
+        System.out.println("Done.");
+        
+        MainWindow.setQuestion();
+    }
+    
+    public void updatePanel() {
+    	JTextArea score = new JTextArea("Score: " + scoreRight + "/" + scoreTotal);
+        score.setBounds(400, 50, 200, 100);
+        score.setEditable(false);
+        add(score);
+
+        questionArea = new JTextArea();
+        //questionArea.update(questionArea.getGraphics());
+        questionArea.setBounds(100, 250, 800, 200);
+        questionArea.setEditable(false);
+        add(questionArea);
+
+        JButton next = new JButton();
+        next.setBounds(700, 75, 150, 40);
+        add(next);
+
+        a1 = new JButton();
+        a1.addActionListener(this);
+        a1.setActionCommand("Button1");
+        a1.setBounds(50, 500, 900, 40);
+        add(a1);
+
+        a2 = new JButton();
+        a2.setBounds(50, 550, 900, 40);
+        a2.addActionListener(this);
+        a2.setActionCommand("Button2");
+        add(a2);
+
+        a3 = new JButton();
+        a3.setBounds(50, 600, 900, 40);
+        a3.addActionListener(this);
+        a3.setActionCommand("Button3");
+        add(a3);
+
+        
+    	
     }
     
 }

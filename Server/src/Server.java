@@ -81,14 +81,15 @@ public class Server {
 				
 				while (!line.equals("Over")) { //Unless client types "Over" input will be printed
 					
-					line = input.readUTF();
 					genID = ShuffleRand.shuffleID();
 					MysqlCon.printSQL(genID);
-					// --> ? sendQuestion = getRandomQuestion(listWithQuestions);
-					System.out.println(line); //Printing input from client
+					line = input.readUTF();
 					
-					//output.writeUTF("cool");
+					// --> ? sendQuestion = getRandomQuestion(listWithQuestions);
+					//System.out.println(line); //Printing input from client
 					objectOutput.writeObject(questions);
+					//output.writeUTF("cool");
+					
 					//outputStream.writeObject(questions);
 					//System.out.println(questions[1]);
 					//System.out.println("received");

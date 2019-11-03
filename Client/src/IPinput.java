@@ -17,7 +17,8 @@ public class IPinput extends JPanel {
 		btnAccept.setBounds(151, 133, 89, 23);
 		btnAccept.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				Client.ipConnect = ipInput.toString();
+				Client.ipConnect = ipInput.getText();
+				System.out.println(Client.ipConnect);
 			}
 		});
 		setLayout(null);
